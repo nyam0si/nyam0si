@@ -91,40 +91,6 @@
         </div>
     </section>
     
-       <section class="retro-hacker-section">
-
-    <pre class="hacker-ascii">
-     █████████████████
-      ████▒▒▒▒▒▒▒▒▒▒▒████
-    ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███
-   ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
-  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
- ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
-     ███▒▒▒▒▒▒▒▒▒▒▒▒▒███
-        █████████████
-    </pre>
-
-    <div class="terminal-window">
-        <div class="terminal-title">
-            SECURITY_ANALYST_TERMINAL
-        </div>
-
-        <div class="terminal-body">
-            <p>$ initializing system...</p>
-            <p>$ loading security modules...</p>
-            <p>$ python scanner.py</p>
-            <p>$ nmap -sV 10.0.0.1</p>
-            <p>$ analyzing traffic logs...</p>
-            <p class="warn">$ threat detected → isolating</p>
-            <p class="success">$ access granted</p>
-            <span class="cursor">▌</span>
-        </div>
-    </div>
-
-</section>
-
-
-
     <!-- Skills Section -->
    <section class="skills" id="skills">
     <h2 class="heading">My <span>Skills</span></h2>
@@ -203,6 +169,19 @@
             
         </div>
     </section>
+    
+    <section class="retro-panel">
+    <div class="terminal-panel">
+        <div class="terminal-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="title">SECURITY_ANALYST_PANEL</span>
+        </div>
+        <div class="terminal-output" id="terminal-output"></div>
+    </div>
+</section>
+
 
   <!-- Contact Section -->
 <section class="contact" id="contact">
@@ -278,49 +257,41 @@ function deletingEffect() {
 typingEffect();
 </script>
 <script>
-const terminal = document.getElementById("terminal");
+const terminal = document.getElementById("terminal-output");
 
-const lines = [
-    { text: "initializing system...", type: "info" },
-    { text: "loading security modules...", type: "info" },
-    { text: "python scanner.py", type: "cmd" },
-    { text: "nmap -sV 10.0.0.1", type: "cmd" },
-    { text: "analyzing traffic logs...", type: "info" },
-    { text: "threat detected → isolating", type: "warn" },
-    { text: "access granted", type: "success" }
+const commands = [
+    { text: "Initializing Security Modules...", type: "info" },
+    { text: "Running Python scripts...", type: "info" },
+    { text: "Scanning ports: nmap -sV 10.0.0.1", type: "info" },
+    { text: "Analyzing logs...", type: "info" },
+    { text: "Threat detected → isolating", type: "warn" },
+    { text: "Access Granted", type: "success" }
 ];
 
-let lineIndex = 0;
-let charIndex = 0;
-let currentLine = "";
+let index = 0;
 
-function typeLine() {
-    if (lineIndex >= lines.length) return;
+function typeCommand() {
+    if (index >= commands.length) return;
 
-    const line = lines[lineIndex];
-    currentLine += line.text.charAt(charIndex);
-
-    terminal.innerHTML += line.text.charAt(charIndex);
-    charIndex++;
-
-    if (charIndex === line.text.length) {
-        terminal.innerHTML += "<br>";
-        charIndex = 0;
-        lineIndex++;
-        currentLine = "";
-        setTimeout(typeLine, 600);
-    } else {
-        setTimeout(typeLine, 40);
-    }
-
+    const cmd = commands[index];
+    const p = document.createElement("p");
+    p.classList.add(cmd.type);
+    p.textContent = "$ " + cmd.text;
+    const cursor = document.createElement("span");
+    cursor.classList.add("cursor");
+    p.appendChild(cursor);
+    terminal.appendChild(p);
     terminal.scrollTop = terminal.scrollHeight;
+
+    index++;
+    setTimeout(typeCommand, 1200);
 }
 
-setTimeout(typeLine, 1000);
+setTimeout(typeCommand, 1000);
 </script>
-
 </body>
 </html>
+
 
 
 
