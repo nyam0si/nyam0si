@@ -456,39 +456,77 @@ a:focus-visible,
     justify-content: center;
 }
 
-/* Terminal Body */
+.retro-hacker-section {
+    position: relative;
+    background: #000;
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ASCII Hacker */
+.hacker-ascii {
+    position: absolute;
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    font-size: 1.4rem;
+    opacity: 0.08;
+    text-align: center;
+    text-shadow: 0 0 25px #00ff88;
+    pointer-events: none;
+}
+
+/* Terminal Window */
+.terminal-window {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    background: #050505;
+    border: 1px solid #00ff88;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,255,136,0.3);
+}
+
+/* Title */
+.terminal-title {
+    padding: 1rem;
+    border-bottom: 1px solid #00ff88;
+    font-family: 'Courier New', monospace;
+    font-size: 1.3rem;
+    color: #00ff88;
+    letter-spacing: 2px;
+}
+
+/* Body */
 .terminal-body {
-    height: 260px;
     padding: 2rem;
     font-family: 'Courier New', monospace;
     font-size: 1.5rem;
-    color: #0f0;
-    overflow-y: auto;
-    background: rgba(0,0,0,0.85);
-    text-shadow: 0 0 8px #0f0;
+    color: #00ff88;
+    line-height: 1.8;
 }
 
-/* Cursor effect */
-.terminal-body::after {
-    content: "▌";
+/* Status colors */
+.warn {
+    color: #ff5555;
+    text-shadow: 0 0 10px #ff5555;
+}
+
+.success {
+    color: #00ffaa;
+    text-shadow: 0 0 10px #00ffaa;
+}
+
+/* Blinking cursor */
+.cursor {
+    display: inline-block;
     animation: blink 1s infinite;
-    margin-left: 5px;
 }
 
 @keyframes blink {
     50% { opacity: 0; }
 }
-
-/* Glitch flicker */
-.terminal-window {
-    animation: glitch 5s infinite;
-}
-
-@keyframes glitch {
-    0%, 100% { transform: none; }
-    98% { transform: translateX(1px); }
-    99% { transform: translateX(-1px); }
-}
-
 
 
