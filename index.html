@@ -170,19 +170,6 @@
         </div>
     </section>
     
-    <section class="retro-panel">
-    <div class="terminal-panel">
-        <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="title">SECURITY_ANALYST_PANEL</span>
-        </div>
-        <div class="terminal-output" id="terminal-output"></div>
-    </div>
-</section>
-
-
   <!-- Contact Section -->
 <section class="contact" id="contact">
     <h2 class="heading">Get in <span>Touch</span></h2>
@@ -256,41 +243,9 @@ function deletingEffect() {
 
 typingEffect();
 </script>
-<script>
-const terminal = document.getElementById("terminal-output");
-
-const commands = [
-    { text: "Initializing Security Modules...", type: "info" },
-    { text: "Running Python scripts...", type: "info" },
-    { text: "Scanning ports: nmap -sV 10.0.0.1", type: "info" },
-    { text: "Analyzing logs...", type: "info" },
-    { text: "Threat detected → isolating", type: "warn" },
-    { text: "Access Granted", type: "success" }
-];
-
-let index = 0;
-
-function typeCommand() {
-    if (index >= commands.length) return;
-
-    const cmd = commands[index];
-    const p = document.createElement("p");
-    p.classList.add(cmd.type);
-    p.textContent = "$ " + cmd.text;
-    const cursor = document.createElement("span");
-    cursor.classList.add("cursor");
-    p.appendChild(cursor);
-    terminal.appendChild(p);
-    terminal.scrollTop = terminal.scrollHeight;
-
-    index++;
-    setTimeout(typeCommand, 1200);
-}
-
-setTimeout(typeCommand, 1000);
-</script>
 </body>
 </html>
+
 
 
 
