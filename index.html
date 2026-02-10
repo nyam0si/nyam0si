@@ -91,10 +91,10 @@
         </div>
     </section>
     
-        <section class="retro-hacker-section">
-    <div class="hacker-silhouette">
-<pre>
-        █████████████████
+       <section class="retro-hacker-section">
+
+    <pre class="hacker-ascii">
+     █████████████████
       ████▒▒▒▒▒▒▒▒▒▒▒████
     ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███
    ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
@@ -102,20 +102,27 @@
  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
      ███▒▒▒▒▒▒▒▒▒▒▒▒▒███
         █████████████
-</pre>
-    </div>
+    </pre>
 
     <div class="terminal-window">
-        <div class="terminal-header">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="title">SECURITY_ANALYST_TERMINAL</span>
+        <div class="terminal-title">
+            SECURITY_ANALYST_TERMINAL
         </div>
 
-        <div class="terminal-body" id="terminal"></div>
+        <div class="terminal-body">
+            <p>$ initializing system...</p>
+            <p>$ loading security modules...</p>
+            <p>$ python scanner.py</p>
+            <p>$ nmap -sV 10.0.0.1</p>
+            <p>$ analyzing traffic logs...</p>
+            <p class="warn">$ threat detected → isolating</p>
+            <p class="success">$ access granted</p>
+            <span class="cursor">▌</span>
+        </div>
     </div>
+
 </section>
+
 
 
     <!-- Skills Section -->
@@ -314,6 +321,7 @@ setTimeout(typeLine, 1000);
 
 </body>
 </html>
+
 
 
 
