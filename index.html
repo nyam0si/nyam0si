@@ -90,7 +90,21 @@
             </div>
         </div>
     </section>
+    
         <section class="retro-hacker-section">
+    <div class="hacker-silhouette">
+<pre>
+        █████████████████
+      ████▒▒▒▒▒▒▒▒▒▒▒████
+    ███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒███
+   ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+  ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+ ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+     ███▒▒▒▒▒▒▒▒▒▒▒▒▒███
+        █████████████
+</pre>
+    </div>
+
     <div class="terminal-window">
         <div class="terminal-header">
             <span class="dot red"></span>
@@ -99,20 +113,10 @@
             <span class="title">SECURITY_ANALYST_TERMINAL</span>
         </div>
 
-        <div class="terminal-body">
-            <p>$ initializing system...</p>
-            <p>$ loading security modules...</p>
-            <p>$ python scanner.py</p>
-            <p>$ nmap -sV 10.0.0.1</p>
-            <p>$ analyzing traffic logs</p>
-            <p>$ threat detected → isolating</p>
-            <p>$ access granted</p>
-            <p class="cursor-line">
-                $ <span class="cursor"></span>
-            </p>
-        </div>
+        <div class="terminal-body" id="terminal"></div>
     </div>
 </section>
+
 
     <!-- Skills Section -->
    <section class="skills" id="skills">
@@ -266,9 +270,51 @@ function deletingEffect() {
 
 typingEffect();
 </script>
+<script>
+const terminal = document.getElementById("terminal");
+
+const lines = [
+    { text: "initializing system...", type: "info" },
+    { text: "loading security modules...", type: "info" },
+    { text: "python scanner.py", type: "cmd" },
+    { text: "nmap -sV 10.0.0.1", type: "cmd" },
+    { text: "analyzing traffic logs...", type: "info" },
+    { text: "threat detected → isolating", type: "warn" },
+    { text: "access granted", type: "success" }
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+let currentLine = "";
+
+function typeLine() {
+    if (lineIndex >= lines.length) return;
+
+    const line = lines[lineIndex];
+    currentLine += line.text.charAt(charIndex);
+
+    terminal.innerHTML += line.text.charAt(charIndex);
+    charIndex++;
+
+    if (charIndex === line.text.length) {
+        terminal.innerHTML += "<br>";
+        charIndex = 0;
+        lineIndex++;
+        currentLine = "";
+        setTimeout(typeLine, 600);
+    } else {
+        setTimeout(typeLine, 40);
+    }
+
+    terminal.scrollTop = terminal.scrollHeight;
+}
+
+setTimeout(typeLine, 1000);
+</script>
 
 </body>
 </html>
+
 
 
 
