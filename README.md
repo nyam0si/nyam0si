@@ -32,7 +32,7 @@ I’m a passionate web developer, tech educator, and cybersecurity specialist dr
 
 ### 📊 Stats
 
-![Nyamosi's GitHub stats](https://github-readme-stats.vercel.app/api?username=nyamosi-tech&show_icons=true&theme=gruvbox)
+![Nyamosi's GitHub stats](https://github-readme-stats.vercel.app/api?username=nyam0si&show_icons=true&theme=gruvbox)
 
 <!-- ![GitHub Streak](https://streak-stats.demolab.com?user=nyamosi-tech&theme=gruvbox&border_radius=4.5) -->
 
