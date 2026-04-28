@@ -1,53 +1,81 @@
-# 🐊 Nyamosi Opera
+<div align="center">
+  
+  <!-- Oscillating Hacker Icon -->
+  <a href="https://github.com/nyam0si">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=40&duration=1&pause=100&color=00FF00&center=true&vCenter=true&repeat=false&width=80&height=80&lines=%3E_%7C" alt="Hacker Icon"/>
+  </a>
+  
+  <h1>🐊 Nyamosi Opera</h1>
+  
+  <h3><code>Cybersecurity Enthusiast | Developer | Tech Tutor</code></h3>
+  
+  <!-- Animated Hacker Cursor Line -->
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=500&color=00FF00&center=true&vCenter=true&width=600&lines=%3E+sudo+apt-get+install+knowledge+%26+security;%3E+python+defend.py+--proactive;%3E+Protecting+digital+environments+everyday;%3E+Building+secure%2C+user-friendly+solutions" alt="Typing Animation"/>
+  
+</div>
 
-**`CyberSecurity Enthusiats (Developer/tech Tutor)`**
+<br/>
 
+## About Me
 
-I’m a passionate web developer, tech educator, and cybersecurity specialist driven by a deep commitment to transforming ideas into powerful, functional code while safeguarding digital environments. With a strong foundation in both front-end and back-end development, I enjoy building intuitive, user-friendly websites and applications that not only perform well but are also secure by design. Cybersecurity is at the core of my work—I’m dedicated to protecting systems and users from evolving cyber threats through proactive defense strategies, vulnerability analysis, and continuous learning. In addition to hands-on development and security work, I find great fulfillment in teaching and sharing technical knowledge, helping others build their skills and navigate the ever-changing tech landscape. I thrive at the intersection of innovation, security, and education, always aiming to make a meaningful and lasting impact in the digital world.
+I'm a passionate web developer, tech educator, and cybersecurity specialist driven by a deep commitment to transforming ideas into powerful, functional code while safeguarding digital environments. With a strong foundation in both front-end and back-end development, I enjoy building intuitive, user-friendly websites and applications that not only perform well but are also secure by design.
 
+Cybersecurity is at the core of my work—I'm dedicated to protecting systems and users from evolving cyber threats through proactive defense strategies, vulnerability analysis, and continuous learning. In addition to hands-on development and security work, I find great fulfillment in teaching and sharing technical knowledge, helping others build their skills and navigate the ever-changing tech landscape.
+
+I thrive at the intersection of innovation, security, and education, always aiming to make a meaningful and lasting impact in the digital world.
 
 ---
 
-### 🧰 Languages and Tools
+## 🧰 Languages and Tools
 
-<img align="left" alt="Git" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
-<img align="left" alt="Linux" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" />
-<img align="left" alt="HTML" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" />
-<img align="left" alt="CSS" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg" />
-<img align="left" alt="JavaScript" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg" />
-<img align="left" alt="Python" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" />
-<img align="left" alt="GitHub" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-<img align="left" alt="Bash" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" />
-<br />
+<div align="center">
+  
+| Category | Technologies |
+|:--------:|:------------:|
+| **Languages** | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white) |
+| **Tools & OS** | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) |
+| **Databases** | ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) |
+| **Automation** | ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) |
 
-#
+</div>
 
-### 
+<br/>
 
-<!-- BEGIN YOUTUBE-CARDS -->
+## 📊 GitHub Stats
 
-<!-- END YOUTUBE-CARDS -->
+<div align="center">
+  
+![Nyamosi's GitHub stats](https://github-readme-stats.vercel.app/api?username=nyam0si&show_icons=true&theme=gruvbox&hide_border=true)
 
-#
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=nyam0si&layout=compact&theme=gruvbox&hide_border=true)
 
-### 📊 Stats
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=nyam0si&theme=gruvbox&hide_border=true)
 
-![Nyamosi's GitHub stats](https://github-readme-stats.vercel.app/api?username=nyam0si&show_icons=true&theme=gruvbox)
+</div>
 
-<!-- ![GitHub Streak](https://streak-stats.demolab.com?user=nyamosi-tech&theme=gruvbox&border_radius=4.5) -->
+---
 
-#
-<!--
-<details>
- <summary><h3>👨‍💻 Nyamosi's Journey</h3></summary>
-  I started my tech journey not in a classroom or a coding bootcamp, but on the couch, captivated by hacking scenes in movies—those dramatic moments where someone tapped a few keys and suddenly had access to the world. It wasn’t just the thrill of it that drew me in; it was the curiosity. How does that actually work? That question led me down a rabbit hole into the world of cybersecurity, programming, and eventually, web development.
+## 🚀 Featured Projects
 
-As I dug deeper, what began as a fascination quickly became a passion. I wanted to understand everything—from how systems are built to how they’re broken into. I taught myself web development from the ground up, learning both front-end and back-end technologies, but always keeping cybersecurity at the core of everything I built. Along the way, I discovered another passion: teaching. I started creating tech content to share what I was learning, helping others understand this world that had opened up to me through curiosity and code.
+| Project | Description | Tech Stack |
+|:-------:|:-----------:|:----------:|
+| **Remote Job Scraper** | Automated Python bot scraping remote job platforms with email notifications | Python, GitHub Actions, SMTP |
+| **Port Scanner** | Multi-threaded network security tool for educational purposes | Python, Socket Programming, TCP/IP |
+| **Sotik Fast Foods** | Online food ordering platform with M-Pesa integration | PHP, MySQL, HTML, CSS, JS |
 
-But like many people in tech, I found myself pulled toward the “safe path”—a traditional job, stability, predictable steps. Yet something in me never settled. I couldn’t shake the feeling that I was leaving something behind—something that mattered. I had dreams of building my own product, of creating tools that were both useful and secure. But I let them sit on the back burner.
+---
 
-Now, that fire is back—and it's stronger than ever. I’m streamlining my content, shifting focus, and making space to finally pursue that dream. Not just to build for the sake of building, but to create something real—something secure, something impactful. It’s time to get uncomfortable again. It’s time to take that leap.
+## 📫 Connect With Me
 
-My name is Nyamosi. I’m a developer, a cybersecurity advocate, a teacher—and I’m coming for everything younger me dreamed of.
-[website]: https://fkcodes.com
-[youtube]: https://youtube.com/fknight
+<div align="center">
+  
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:nyamosiopera@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/nyam0si)
+[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://nyam0si.github.io)
+
+</div>
+
+---
+
+<div align="center">
+  
