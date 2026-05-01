@@ -45,11 +45,11 @@ I thrive at the intersection of innovation, security, and education, always aimi
 
 <div align="center">
   
-![Nyamosi's GitHub stats](https://github-readme-stats.vercel.app/api?username=nyam0si&show_icons=true&theme=gruvbox&hide_border=true)
+![Nyamosi's GitHub stats](https://github-readme-stats.vercel.app/api?username=nyam0si&show_icons=true&theme=dark&hide_border=true&bg_color=0d1117&title_color=00FF00&icon_color=00FF00&text_color=ffffff)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=nyam0si&layout=compact&theme=gruvbox&hide_border=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=nyam0si&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=00FF00&text_color=ffffff)
 
-![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=nyam0si&theme=gruvbox&hide_border=true)
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=nyam0si&theme=dark&hide_border=true&background=0d1117&stroke=00FF00&ring=00FF00&fire=00FF00&currStreakLabel=00FF00)
 
 </div>
 
@@ -79,3 +79,8 @@ I thrive at the intersection of innovation, security, and education, always aimi
 
 <div align="center">
   
+![Profile Views](https://komarev.com/ghpvc/?username=nyam0si&color=00ff00&style=flat-square)
+
+**⭐️ From [nyam0si](https://github.com/nyam0si)**
+
+</div>
