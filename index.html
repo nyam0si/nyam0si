@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>if ('scrollRestoration' in history) history.scrollRestoration = 'manual';</script>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nyamosi — Security Analyst & Developer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nyamosi</title>
+  <!-- Favicon - Blue Hacker Icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0e1a'/%3E%3Ccircle cx='50' cy='35' r='12' fill='none' stroke='%2300d4ff' stroke-width='3'/%3E%3Cpath d='M30 55 L70 55 L60 75 L40 75 Z' fill='none' stroke='%2300d4ff' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M35 55 L35 45 L65 45 L65 55' fill='none' stroke='%2300d4ff' stroke-width='2'/%3E%3Cpath d='M40 75 L40 85 L60 85 L60 75' fill='none' stroke='%2300d4ff' stroke-width='2'/%3E%3Ccircle cx='42' cy='42' r='1.5' fill='%2300d4ff'/%3E%3Ccircle cx='58' cy='42' r='1.5' fill='%2300d4ff'/%3E%3Cpath d='M20 50 L15 55 L20 60' fill='none' stroke='%237b2ffc' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M80 50 L85 55 L80 60' fill='none' stroke='%237b2ffc' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <!-- Google Fonts: clean modern sans-serif + mono for code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Canvas for matrix rain -->
-  <canvas id="matrix-canvas"></canvas>
-
-  <!-- Custom cursor -->
-  <div class="cursor-ring" id="cursorRing"></div>
-  <div class="cursor-dot" id="cursorDot"></div>
-
-  <!-- Scan line overlay -->
-  <div class="scanlines" aria-hidden="true"></div>
-
   <!-- NAV -->
   <header id="navbar">
-    <div class="nav-logo">
-      <span class="logo-bracket">[</span>
-      <span class="logo-text">NYA<span class="logo-accent">MOSI</span></span>
-      <span class="logo-bracket">]</span>
-    </div>
+    <div class="nav-logo">NYA<span>MOSI</span></div>
     <nav id="mainNav">
       <a href="#home"       class="nav-link active" data-section="home">      <span class="nav-num">01</span>Home</a>
       <a href="#services"   class="nav-link"         data-section="services">  <span class="nav-num">02</span>Services</a>
@@ -44,546 +33,320 @@
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-close" id="mobileClose">[ CLOSE ]</button>
-    <div class="mobile-prompt">root@nyamosi:~$ <span class="blink">█</span></div>
+    <button class="mobile-close" id="mobileClose">✕ Close</button>
+    <div class="mobile-prompt">nyamosi@portfolio:~$</div>
     <nav>
-      <a href="#home"       class="mobile-link" data-close>01 // HOME</a>
-      <a href="#services"   class="mobile-link" data-close>02 // SERVICES</a>
-      <a href="#skills"     class="mobile-link" data-close>03 // SKILLS</a>
-      <a href="#experience" class="mobile-link" data-close>04 // EXPERIENCE</a>
-      <a href="#education"  class="mobile-link" data-close>05 // EDUCATION</a>
-      <a href="#contact"    class="mobile-link" data-close>06 // CONTACT</a>
+      <a href="#home"       class="mobile-link" data-close>01 // Home</a>
+      <a href="#services"   class="mobile-link" data-close>02 // Services</a>
+      <a href="#skills"     class="mobile-link" data-close>03 // Skills</a>
+      <a href="#experience" class="mobile-link" data-close>04 // Experience</a>
+      <a href="#education"  class="mobile-link" data-close>05 // Education</a>
+      <a href="#contact"    class="mobile-link" data-close>06 // Contact</a>
     </nav>
   </div>
   <div class="mobile-overlay" id="mobileOverlay"></div>
 
-  <!-- ══════════════════════════════════
-       HERO
-  ══════════════════════════════════ -->
+  <!-- ===== HERO ===== -->
   <section class="home" id="home">
-    <div class="home-terminal">
-      <div class="term-bar">
-        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-        <span class="term-title">terminal — bash — 80×24</span>
-      </div>
-      <div class="term-body">
-        <div class="term-line"><span class="prompt">root@system:~$</span> <span class="cmd">whoami</span></div>
-        <div class="term-output reveal-line" style="--d:.3s">Nyamosi Opera</div>
-        <div class="term-line mt"><span class="prompt">root@system:~$</span> <span class="cmd">cat profile.txt</span></div>
-        <div class="term-output reveal-line" style="--d:.6s">
-          <span class="key">Role     :</span> <span id="typing-role"></span>
+    <div class="container home-grid">
+      <div class="home-content">
+        <div class="sec-tag"><i class="fas fa-shield-halved"></i> Cybersecurity Professional</div>
+        <h1>Nyamosi <span>Opera</span></h1>
+        <div class="home-sub">
+          <span>Security Analyst · Cloud Security</span>
+          <span class="badge"><i class="fas fa-certificate"></i> Google Cybersecurity</span>
+          <span class="badge"><i class="fas fa-cloud"></i> Google Cloud Security</span>
         </div>
-        <div class="term-output reveal-line" style="--d:.8s">
-          <span class="key">Focus    :</span> Cybersecurity &amp; Web Development
+        <p class="home-desc">
+          I combine hands-on IT support with a deep passion for cybersecurity — from vulnerability assessment
+          and threat detection to cloud security and incident response. Google-certified and constantly learning.
+        </p>
+        <div>
+          <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Connect</a>
+          <a href="opera_resume.pdf" download class="btn-outline"><i class="fas fa-download"></i> Resume</a>
         </div>
-        <div class="term-output reveal-line" style="--d:1s">
-          <span class="key">Location :</span> Kenya 🇰🇪
+        <div class="hero-badges">
+          <span class="hbadge"><i class="fas fa-shield-halved"></i> Security+</span>
+          <span class="hbadge"><i class="fas fa-cloud"></i> Cloud Security</span>
+          <span class="hbadge"><i class="fas fa-bug"></i> Vulnerability Mgmt</span>
         </div>
-        <div class="term-output reveal-line" style="--d:1.2s">
-          <span class="key">Status   :</span> <span class="status-green">● AVAILABLE FOR HIRE</span>
-        </div>
-        <div class="term-line mt reveal-line" style="--d:1.5s"><span class="prompt">root@system:~$</span> <span class="cmd">cat about.txt</span></div>
-        <div class="term-output reveal-line small-text" style="--d:1.7s">
-          I'm a tech support professional with a growing passion for cybersecurity — a field
-          that fascinates me for its blend of networking, IoT, scripting, and social engineering.
-          Cybersecurity isn't just a job — it's an evolving puzzle that touches every corner of tech.
-        </div>
-        <div class="term-line mt reveal-line" style="--d:2s">
-          <span class="prompt">root@system:~$</span> <span class="blink-cursor">█</span>
+        <div class="social-row">
+          <a href="https://www.instagram.com/enk0ba/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/nyam0si" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
-    </div>
-
-    <div class="home-right">
-      <div class="avatar-ring">
-        <div class="ring-outer">
-          <div class="ring-inner">
-            <img src="main.jpg" alt="Nyamosi Opera" class="avatar-img"/>
-          </div>
+      <div class="home-avatar">
+        <div class="avatar-ring">
+          <img src="main.jpg" alt="Nyamosi Opera" />
         </div>
-        <svg class="ring-svg" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="96" class="ring-track"/>
-          <circle cx="100" cy="100" r="96" class="ring-progress" id="ringProgress"/>
-        </svg>
-        <div class="ring-label top">SECURITY</div>
-        <div class="ring-label bottom">ANALYST</div>
-      </div>
-
-      <div class="hero-badges">
-        <span class="hbadge"><i class="fas fa-shield-halved"></i> Cybersecurity</span>
-        <span class="hbadge"><i class="fas fa-code"></i> Developer</span>
-        <span class="hbadge"><i class="fas fa-bug"></i> Ethical Hacking</span>
-      </div>
-
-      <div class="social-row">
-        <a href="https://www.instagram.com/enk0ba/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://github.com/nyam0si"                target="_blank" aria-label="GitHub">  <i class="fa-brands fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      </div>
-
-      <a href="Nyamosi_Opera_Resume.pdf" download class="btn-hacker" target="_blank">
-        <span class="btn-bracket">[</span>
-        <i class="fas fa-download"></i> DOWNLOAD_RESUME
-        <span class="btn-bracket">]</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════
-       SERVICES
-  ══════════════════════════════════ -->
-  <section class="services section-pad" id="services">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">// SERVICES</div>
-        <h2 class="sec-title">What I <span>Do</span></h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="services-grid">
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-globe"></i></div>
-          <h3>Web Development</h3>
-          <p>Building responsive and dynamic websites using HTML, CSS, and JavaScript with clean, maintainable code.</p>
-          <div class="svc-tag">HTML · CSS · JS</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-headset"></i></div>
-          <h3>I.T. Support</h3>
-          <p>Providing technical assistance by troubleshooting hardware, software, and network issues to keep systems running smoothly.</p>
-          <div class="svc-tag">Hardware · Networks · OS</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
-          <h3>Security Analyst</h3>
-          <p>Monitoring, analyzing, and protecting systems to prevent cyber threats and ensure data integrity.</p>
-          <div class="svc-tag">SIEM · Threat Intel · Logs</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-triangle-exclamation"></i></div>
-          <h3>Vulnerability Assessment</h3>
-          <p>Identifying, evaluating, and mitigating potential security weaknesses in systems and applications.</p>
-          <div class="svc-tag">Nmap · Nikto · CVE</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-lock"></i></div>
-          <h3>Cybersecurity</h3>
-          <p>Protecting systems through vulnerability assessments, threat mitigation, and security awareness training.</p>
-          <div class="svc-tag">Pen Testing · Risk Mgmt</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-chalkboard-user"></i></div>
-          <h3>Tech Educator</h3>
-          <p>Explaining complex technical concepts in simple terms through tutorials, training sessions, and digital content.</p>
-          <div class="svc-tag">Tutorials · Training</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-share-nodes"></i></div>
-          <h3>Social Media Manager</h3>
-          <p>Strategizing and managing social media presence to grow audience engagement and brand visibility.</p>
-          <div class="svc-tag">Strategy · Analytics · Growth</div>
-        </div>
-
-        <div class="svc-card" data-aos>
-          <div class="svc-icon"><i class="fas fa-film"></i></div>
-          <h3>Content Creation</h3>
-          <p>Producing educational and engaging tech content for various platforms that informs and inspires.</p>
-          <div class="svc-tag">Video · Articles · Tech</div>
-        </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       SKILLS
-  ══════════════════════════════════ -->
-  <section class="skills section-pad" id="skills">
-    <div class="container">
-      <div class="sec-header">
-        <div class="sec-tag">// SKILLS</div>
-        <h2 class="sec-title">Tech <span>Arsenal</span></h2>
-        <div class="sec-line"></div>
-      </div>
-
-      <div class="skills-grid">
-
-        <!-- Category -->
-        <div class="skill-category" data-aos>
-          <div class="skill-cat-header">
-            <i class="fas fa-shield-halved"></i>
-            <span>Security</span>
-          </div>
-          <div class="skill-tags-wrap">
-            <div class="skill-pill" data-level="85">
-              <span class="pill-name">Cybersecurity Fundamentals</span>
-              <span class="pill-level">85%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:85%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="75">
-              <span class="pill-name">Vulnerability Assessment</span>
-              <span class="pill-level">75%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:75%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="70">
-              <span class="pill-name">Penetration Testing</span>
-              <span class="pill-level">70%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:70%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="65">
-              <span class="pill-name">Incident Response</span>
-              <span class="pill-level">65%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:65%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category" data-aos>
-          <div class="skill-cat-header">
-            <i class="fas fa-network-wired"></i>
-            <span>Networking</span>
-          </div>
-          <div class="skill-tags-wrap">
-            <div class="skill-pill" data-level="80">
-              <span class="pill-name">Networking Fundamentals</span>
-              <span class="pill-level">80%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:80%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="70">
-              <span class="pill-name">TCP/IP · DNS · DHCP</span>
-              <span class="pill-level">70%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:70%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="68">
-              <span class="pill-name">Wireshark · Nmap</span>
-              <span class="pill-level">68%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:68%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category" data-aos>
-          <div class="skill-cat-header">
-            <i class="fas fa-code"></i>
-            <span>Development</span>
-          </div>
-          <div class="skill-tags-wrap">
-            <div class="skill-pill" data-level="90">
-              <span class="pill-name">Python (Scripting & Automation)</span>
-              <span class="pill-level">90%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:90%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="75">
-              <span class="pill-name">HTML · CSS · JavaScript</span>
-              <span class="pill-level">75%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:75%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="65">
-              <span class="pill-name">Bash Scripting</span>
-              <span class="pill-level">65%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:65%"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category" data-aos>
-          <div class="skill-cat-header">
-            <i class="fas fa-toolbox"></i>
-            <span>Tools & Other</span>
-          </div>
-          <div class="skill-tags-wrap">
-            <div class="skill-pill" data-level="85">
-              <span class="pill-name">MS Office Suite</span>
-              <span class="pill-level">85%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:85%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="90">
-              <span class="pill-name">Article Writing</span>
-              <span class="pill-level">90%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:90%"></div></div>
-            </div>
-            <div class="skill-pill" data-level="80">
-              <span class="pill-name">Linux (Kali · Ubuntu)</span>
-              <span class="pill-level">80%</span>
-              <div class="pill-bar"><div class="pill-fill" style="--w:80%"></div></div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /skills-grid -->
-
-      <!-- Floating tech badges -->
-      <div class="tech-badges" data-aos>
-        <span class="tbadge">Kali Linux</span>
-        <span class="tbadge">Metasploit</span>
-        <span class="tbadge">Burp Suite</span>
-        <span class="tbadge">Wireshark</span>
-        <span class="tbadge">Nmap</span>
-        <span class="tbadge">TryHackMe</span>
-        <span class="tbadge">Python 3</span>
-        <span class="tbadge">Bash</span>
-        <span class="tbadge">Git</span>
-        <span class="tbadge">OWASP</span>
-        <span class="tbadge">Splunk</span>
-        <span class="tbadge">Snort</span>
-      </div>
-
+ <!-- ===== SERVICES ===== -->
+<section class="services section-pad" id="services">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-tag">// Services</div>
+      <h2 class="sec-title">What I <span>Deliver</span></h2>
+      <div class="sec-line"></div>
     </div>
-  </section>
+    <div class="services-grid">
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3>Security Analyst</h3>
+        <p>Monitoring & analyzing systems, threat detection, SIEM operations, and incident response.</p>
+        <span class="svc-tag">SIEM · Threat Intel</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-cloud"></i></div>
+        <h3>Cloud Security</h3>
+        <p>Google Cloud security, IAM, cloud compliance, and infrastructure protection.</p>
+        <span class="svc-tag">GCP · IAM · Compliance</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+        <h3>Vulnerability Assessment</h3>
+        <p>Identifying and mitigating weaknesses using Nmap, Nikto, and open-source tools.</p>
+        <span class="svc-tag">Nmap · Nikto · CVE</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-code"></i></div>
+        <h3>Web Development</h3>
+        <p>Secure, responsive websites with modern front-end and security best practices.</p>
+        <span class="svc-tag">HTML · CSS · JS</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-headset"></i></div>
+        <h3>IT Support &amp; Networks</h3>
+        <p>Hardware, software, and network troubleshooting with a security-first mindset.</p>
+        <span class="svc-tag">Networks · OS · AD</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-chalkboard-user"></i></div>
+        <h3>Tech Education</h3>
+        <p>Training, tutorials, and content creation to demystify complex security topics.</p>
+        <span class="svc-tag">Training · Content</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-bug"></i></div>
+        <h3>Security Simulations &amp; Mitigations</h3>
+        <p>Designing and executing simulated attack scenarios to test defenses, followed by targeted mitigation strategies to strengthen security posture and reduce vulnerabilities.</p>
+        <span class="svc-tag">Red Teaming · Pen Testing · Mitigation</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-robot"></i></div>
+        <h3>Automation &amp; Scripting</h3>
+        <p>Building Python automation pipelines for security monitoring, data aggregation, and real-time alerting using GitHub Actions, SMTP, and custom scripts.</p>
+        <span class="svc-tag">Python · GitHub Actions · Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- ══════════════════════════════════
-       EXPERIENCE
-  ══════════════════════════════════ -->
+  <!-- ===== SKILLS ===== -->
+<section class="skills section-pad" id="skills">
+  <div class="container">
+    <div class="sec-header">
+      <div class="sec-tag">// Skills</div>
+      <h2 class="sec-title">Technical <span>Arsenal</span></h2>
+      <div class="sec-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category" data-aos>
+        <div class="skill-cat-header"><i class="fas fa-shield-halved"></i> Security</div>
+        <div class="skill-tags-wrap">
+          <span class="skill-tag"><i class="fas fa-shield-halved"></i> Cybersecurity Fundamentals</span>
+          <span class="skill-tag"><i class="fas fa-search"></i> Vulnerability Assessment</span>
+          <span class="skill-tag"><i class="fas fa-cloud"></i> Cloud Security (GCP)</span>
+          <span class="skill-tag"><i class="fas fa-bolt"></i> Incident Response</span>
+          <span class="skill-tag"><i class="fas fa-robot"></i> Threat Modeling</span>
+          <span class="skill-tag"><i class="fas fa-user-lock"></i> IAM Policy Management</span>
+          <span class="skill-tag"><i class="fas fa-sitemap"></i> SIEM (Splunk/Chronicle)</span>
+          <span class="skill-tag"><i class="fas fa-bug"></i> Intrusion Detection Systems (IDS)</span>
+        </div>
+      </div>
+      <div class="skill-category" data-aos>
+        <div class="skill-cat-header"><i class="fas fa-network-wired"></i> Networking &amp; Tools</div>
+        <div class="skill-tags-wrap">
+          <span class="skill-tag"><i class="fas fa-network-wired"></i> Networking (TCP/IP, DNS)</span>
+          <span class="skill-tag"><i class="fas fa-wifi"></i> LAN Architecture</span>
+          <span class="skill-tag"><i class="fas fa-microscope"></i> Wireshark · Nmap</span>
+          <span class="skill-tag"><i class="fab fa-linux"></i> Linux (Kali, Ubuntu)</span>
+          <span class="skill-tag"><i class="fas fa-terminal"></i> Bash Scripting</span>
+          <span class="skill-tag"><i class="fas fa-code"></i> Python (Scripting &amp; Automation)</span>
+          <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+          <span class="skill-tag"><i class="fab fa-github"></i> GitHub Actions</span>
+          <span class="skill-tag"><i class="fas fa-server"></i> Windows Server</span>
+        </div>
+      </div>
+    </div>
+    <div class="tech-badges" data-aos>
+      <span class="tbadge">Kali Linux</span><span class="tbadge">Metasploit</span>
+      <span class="tbadge">Burp Suite</span><span class="tbadge">Wireshark</span>
+      <span class="tbadge">Nmap</span><span class="tbadge">TryHackMe</span>
+      <span class="tbadge">GCP</span><span class="tbadge">Splunk</span>
+      <span class="tbadge">Snort</span><span class="tbadge">OWASP</span>
+      <span class="tbadge">Python</span><span class="tbadge">Bash</span>
+      <span class="tbadge">Git</span><span class="tbadge">Docker</span>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== EXPERIENCE ===== -->
   <section class="experience section-pad" id="experience">
     <div class="container">
       <div class="sec-header">
-        <div class="sec-tag">// EXPERIENCE</div>
+        <div class="sec-tag">// Experience</div>
         <h2 class="sec-title">Field <span>Operations</span></h2>
         <div class="sec-line"></div>
       </div>
-
       <div class="exp-timeline">
-
-        <div class="exp-item" data-aos>
-          <div class="exp-dot"></div>
-          <div class="exp-connector"></div>
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role">IT Support Technician</h3>
-                <div class="exp-company"><i class="fas fa-building"></i> Freelance / Contract</div>
-              </div>
-              <div class="exp-meta">
-                <span class="exp-date"><i class="fas fa-calendar"></i> 2021 — Present</span>
-                <span class="exp-badge badge-active">Active</span>
-              </div>
-            </div>
-            <ul class="exp-list">
-              <li>Troubleshot hardware, software, and network issues for clients across multiple industries, maintaining 95%+ satisfaction rate</li>
-              <li>Configured and maintained LAN/WLAN networks, routers, and switches for small businesses</li>
-              <li>Installed and managed operating systems (Windows, Linux) with hardening practices applied</li>
-              <li>Provided remote and on-site technical support, reducing downtime for client operations</li>
-            </ul>
-            <div class="exp-tech">
-              <span>Windows Server</span><span>Linux</span><span>Networking</span><span>Active Directory</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item" data-aos>
-          <div class="exp-dot"></div>
-          <div class="exp-connector"></div>
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role">Cybersecurity Researcher (Self-Directed)</h3>
-                <div class="exp-company"><i class="fas fa-terminal"></i> TryHackMe · HackTheBox</div>
-              </div>
-              <div class="exp-meta">
-                <span class="exp-date"><i class="fas fa-calendar"></i> 2023 — Present</span>
-                <span class="exp-badge badge-active">Active</span>
-              </div>
-            </div>
-            <ul class="exp-list">
-              <li>Completed 50+ rooms on TryHackMe covering web exploitation, privilege escalation, and network security</li>
-              <li>Performed vulnerability assessments and CTF challenges using Kali Linux toolset</li>
-              <li>Practised OWASP Top 10 vulnerabilities using Burp Suite in controlled lab environments</li>
-              <li>Documented findings and write-ups reinforcing methodical security testing habits</li>
-            </ul>
-            <div class="exp-tech">
-              <span>Kali Linux</span><span>Burp Suite</span><span>Nmap</span><span>Metasploit</span><span>OWASP</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="exp-item" data-aos>
-          <div class="exp-dot"></div>
-          <div class="exp-connector"></div>
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role">Tech Content Creator</h3>
-                <div class="exp-company"><i class="fas fa-play"></i> Social Media Platforms</div>
-              </div>
-              <div class="exp-meta">
-                <span class="exp-date"><i class="fas fa-calendar"></i> 2022 — Present</span>
-                <span class="exp-badge badge-active">Active</span>
-              </div>
-            </div>
-            <ul class="exp-list">
-              <li>Produced educational cybersecurity and tech content for Instagram and other platforms</li>
-              <li>Grew engaged community through consistent tech tutorials and security awareness posts</li>
-              <li>Wrote articles and guides on cybersecurity topics, networking, and web development</li>
-              <li>Managed brand identity and social media strategy across multiple channels</li>
-            </ul>
-            <div class="exp-tech">
-              <span>Content Strategy</span><span>Article Writing</span><span>Social Media</span><span>SEO</span>
-            </div>
-          </div>
-        </div>
-
         <div class="exp-item" data-aos>
           <div class="exp-dot"></div>
           <div class="exp-card">
             <div class="exp-header">
-              <div>
-                <h3 class="exp-role">Web Developer (Projects)</h3>
-                <div class="exp-company"><i class="fas fa-code"></i> Personal &amp; Client Projects</div>
-              </div>
-              <div class="exp-meta">
-                <span class="exp-date"><i class="fas fa-calendar"></i> 2021 — Present</span>
-                <span class="exp-badge badge-active">Active</span>
-              </div>
+              <div><div class="exp-role">IT Support Technician</div><div class="exp-company">Freelance / Contract</div></div>
+              <div class="exp-meta"><span>2021 — Present</span> <span class="exp-badge">Active</span></div>
             </div>
             <ul class="exp-list">
-              <li>Designed and developed responsive websites for clients using HTML, CSS, and JavaScript</li>
-              <li>Applied security best practices in web development: input validation, HTTPS, CSP headers</li>
-              <li>Collaborated with clients to translate requirements into functional, visually appealing products</li>
-              <li>Maintained and updated existing websites, improving performance and user experience</li>
+              <li>Troubleshot hardware, software, and network issues, maintaining 95%+ satisfaction</li>
+              <li>Configured LAN/WLAN, routers, switches with security hardening</li>
+              <li>Managed Windows/Linux systems, applied security updates and access controls</li>
             </ul>
-            <div class="exp-tech">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive Design</span>
-            </div>
+            <div class="exp-tech"><span>Windows Server</span><span>Linux</span><span>Networking</span><span>AD</span></div>
           </div>
         </div>
-
+        <div class="exp-item" data-aos>
+          <div class="exp-dot"></div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div><div class="exp-role">Cybersecurity Researcher</div><div class="exp-company">TryHackMe · HackTheBox</div></div>
+              <div class="exp-meta"><span>2023 — Present</span> <span class="exp-badge">Active</span></div>
+            </div>
+            <ul class="exp-list">
+              <li>Completed rooms on TryHackMe: web exploitation, privilege escalation, network security</li>
+              <li>Vulnerability assessments and CTF challenges using Kali Linux, Burp Suite, Nmap</li>
+              <li>Practiced OWASP Top 10 in controlled lab environments</li>
+            </ul>
+            <div class="exp-tech"><span>Kali</span><span>Burp Suite</span><span>Nmap</span><span>Metasploit</span></div>
+          </div>
+        </div>
+        <div class="exp-item" data-aos>
+          <div class="exp-dot"></div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div><div class="exp-role">Cloud Security (GCP) Capstone</div><div class="exp-company">Google Cloud · Coursera</div></div>
+              <div class="exp-meta"><span>2025</span> <span class="exp-badge">Completed</span></div>
+            </div>
+            <ul class="exp-list">
+              <li>Designed and implemented a secure cloud infrastructure on GCP with IAM, VPC, and monitoring</li>
+              <li>Configured Cloud Armor, Cloud IDS, and logging for threat detection</li>
+              <li>Performed risk assessment and compliance mapping for a fictional organization</li>
+            </ul>
+            <div class="exp-tech"><span>GCP</span><span>IAM</span><span>Cloud Armor</span><span>Logging</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       EDUCATION
-  ══════════════════════════════════ -->
+  <!-- ===== EDUCATION ===== -->
   <section class="education section-pad" id="education">
     <div class="container">
       <div class="sec-header">
-        <div class="sec-tag">// EDUCATION</div>
+        <div class="sec-tag">// Education</div>
         <h2 class="sec-title">Knowledge <span>Base</span></h2>
         <div class="sec-line"></div>
       </div>
-
       <div class="edu-grid">
-
         <div class="edu-card" data-aos>
           <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
           <div class="edu-body">
             <span class="edu-date">2019 — 2021</span>
             <h3>Diploma in ICT</h3>
             <div class="edu-inst">Kenya Technical Institution</div>
-            <p>Studied core ICT concepts including full-stack development, networking, data structures, and software engineering. Gained hands-on experience in web development, database management, and ICT tools including MS Office and networking systems.</p>
-            <div class="edu-tags">
-              <span>Full-Stack Dev</span><span>Networking</span><span>Databases</span><span>Software Engineering</span>
-            </div>
+            <p>Front-end web development, networking, database management, and software engineering fundamentals.</p>
+            <div class="edu-tags"><span>Full-Stack</span><span>Networking</span><span>Databases</span></div>
           </div>
         </div>
-
         <div class="edu-card" data-aos>
-          <div class="edu-icon google-icon"><i class="fab fa-google"></i></div>
+          <div class="edu-icon"><i class="fab fa-google"></i></div>
           <div class="edu-body">
-            <span class="edu-date">2025 — Ongoing</span>
+            <span class="edu-date">2025</span>
             <h3>Google Cybersecurity Professional Certificate</h3>
             <div class="edu-inst">Google / Coursera</div>
-            <p>Industry-recognized skills in security analysis, threat detection, incident response, and risk management. Hands-on experience with real-world cybersecurity tools and scenarios, strengthening expertise as a Security Analyst.</p>
-            <div class="edu-tags">
-              <span>Threat Detection</span><span>SIEM</span><span>Incident Response</span><span>Risk Management</span>
-            </div>
-            <div class="edu-progress-wrap">
-              <span class="edu-progress-label">In Progress</span>
-              <div class="edu-progress-bar"><div class="edu-progress-fill" style="--w:65%"></div></div>
-            </div>
+            <p>Security analysis, threat detection, SIEM, incident response, and risk management with hands-on labs.</p>
+            <div class="edu-tags"><span>Threat Detection</span><span>SIEM</span><span>Incident Response</span></div>
           </div>
         </div>
-
         <div class="edu-card" data-aos>
-          <div class="edu-icon"><i class="fas fa-infinity"></i></div>
+          <div class="edu-icon"><i class="fas fa-cloud"></i></div>
           <div class="edu-body">
-            <span class="edu-date">Ongoing</span>
-            <h3>Continuous Learning</h3>
-            <div class="edu-inst">Udemy · Coursera · TryHackMe · freeCodeCamp</div>
-            <p>As an autodidact, I immerse myself in continuous learning through online platforms. These resources have allowed me to gain practical skills in cybersecurity, web development, programming, and networking — complementing formal education with hands-on, real-world knowledge.</p>
-            <div class="edu-tags">
-              <span>TryHackMe</span><span>Udemy</span><span>HackTheBox</span><span>freeCodeCamp</span>
+            <span class="edu-date">2025</span>
+            <h3>Google Cloud Security Certificate (Capstone)</h3>
+            <div class="edu-inst">Google Cloud / Coursera</div>
+            <p>Cloud infrastructure security, IAM, VPC, Cloud Armor, Cloud IDS, and compliance on GCP.</p>
+            <div class="edu-tags"><span>GCP</span><span>IAM</span><span>Cloud Armor</span><span>Compliance</span></div>
+            <div class="edu-progress-wrap">
+              <span class="edu-progress-label"><i class="fas fa-check-circle"></i> Completed</span>
+              <div class="edu-progress-bar"><div class="edu-progress-fill" style="--w:100%"></div></div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════
-       CONTACT
-  ══════════════════════════════════ -->
+  <!-- ===== CONTACT ===== -->
   <section class="contact section-pad" id="contact">
     <div class="container">
       <div class="sec-header">
-        <div class="sec-tag">// CONTACT</div>
+        <div class="sec-tag">// Contact</div>
         <h2 class="sec-title">Establish <span>Connection</span></h2>
         <div class="sec-line"></div>
       </div>
-
       <div class="contact-grid">
-        <div class="contact-left" data-aos>
-          <div class="contact-terminal">
-            <div class="term-bar sm">
-              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-              <span class="term-title">connection.sh</span>
-            </div>
-            <div class="term-body sm">
-              <div class="term-line"><span class="prompt">$</span> <span class="cmd">ping nyamosi --request=job</span></div>
-              <div class="term-output">Pinging nyamosi.opera [AVAILABLE]</div>
-              <div class="term-output">Response time: Fast</div>
-              <div class="term-output">Status: <span class="status-green">● OPEN TO OPPORTUNITIES</span></div>
-              <br>
-              <div class="term-line"><span class="prompt">$</span> <span class="cmd">cat contact.json</span></div>
-              <div class="term-output">{</div>
-              <div class="term-output">&nbsp;&nbsp;"email": <span class="str">"nyamosiopera@gmail.com"</span>,</div>
-              <div class="term-output">&nbsp;&nbsp;"phone": <span class="str">"+254718413890"</span>,</div>
-              <div class="term-output">&nbsp;&nbsp;"location": <span class="str">"Kenya 🇰🇪"</span></div>
-              <div class="term-output">}</div>
-              <div class="term-line mt"><span class="prompt">$</span> <span class="blink-cursor">█</span></div>
-            </div>
+        <div class="contact-terminal" data-aos>
+          <div class="term-bar">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="term-title">contact.sh</span>
+          </div>
+          <div class="term-body">
+            <div class="term-line"><span class="prompt">$</span> <span class="cmd">ping nyamosi --request=job</span></div>
+            <div class="term-output">Pinging nyamosi.opera [AVAILABLE]</div>
+            <div class="term-output">Response time: <span class="status-green">● Fast</span></div>
+            <div class="term-output">Status: <span class="status-green">● OPEN TO OPPORTUNITIES</span></div>
+            <br>
+            <div class="term-line"><span class="prompt">$</span> <span class="cmd">cat contact.json</span></div>
+            <div class="term-output">{</div>
+            <div class="term-output">&nbsp;&nbsp;"email": <span class="str">"nyamosiopera@gmail.com"</span>,</div>
+            <div class="term-output">&nbsp;&nbsp;"phone": <span class="str">"+254718413890"</span>,</div>
+            <div class="term-output">&nbsp;&nbsp;"location": <span class="str">"Kenya 🇰🇪"</span></div>
+            <div class="term-output">}</div>
           </div>
         </div>
-
         <div class="contact-right" data-aos>
           <div class="contact-cards">
             <a href="mailto:nyamosiopera@gmail.com" class="contact-card">
               <div class="cc-icon"><i class="fas fa-envelope"></i></div>
-              <div class="cc-info">
-                <span class="cc-label">EMAIL</span>
-                <span class="cc-value">nyamosiopera@gmail.com</span>
-              </div>
+              <div><div class="cc-label">EMAIL</div><div class="cc-value">nyamosiopera@gmail.com</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
             </a>
             <a href="tel:+254718413890" class="contact-card">
               <div class="cc-icon"><i class="fas fa-phone"></i></div>
-              <div class="cc-info">
-                <span class="cc-label">PHONE</span>
-                <span class="cc-value">+254 718 413 890</span>
-              </div>
+              <div><div class="cc-label">PHONE</div><div class="cc-value">+254 718 413 890</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
             </a>
             <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" class="contact-card">
-              <div class="cc-icon linkedin"><i class="fa-brands fa-linkedin"></i></div>
-              <div class="cc-info">
-                <span class="cc-label">LINKEDIN</span>
-                <span class="cc-value">Nyamosi Opera</span>
-              </div>
+              <div class="cc-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div><div class="cc-label">LINKEDIN</div><div class="cc-value">Nyamosi Opera</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
             </a>
             <a href="https://github.com/nyam0si" target="_blank" class="contact-card">
-              <div class="cc-icon github"><i class="fa-brands fa-github"></i></div>
-              <div class="cc-info">
-                <span class="cc-label">GITHUB</span>
-                <span class="cc-value">github.com/nyam0si</span>
-              </div>
+              <div class="cc-icon"><i class="fa-brands fa-github"></i></div>
+              <div><div class="cc-label">GITHUB</div><div class="cc-value">github.com/nyam0si</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
             </a>
           </div>
@@ -595,10 +358,10 @@
   <!-- QUOTE -->
   <div class="quote-strip">
     <div class="quote-inner">
-      <span class="quote-mark">"</span>
-      Hackers have underground forums. We have NDAs, corporate decorum... and a false sense of security.
-      <span class="quote-mark">"</span>
-      <span class="quote-author">— Ludmila Morozova-Buss</span>
+      <span class="quote-mark">“</span>
+      Security is not a product, but a process. It's a mindset, a constant evolution.
+      <span class="quote-mark">”</span>
+      <span class="quote-author">— Nyamosi Opera</span>
     </div>
   </div>
 
@@ -606,8 +369,8 @@
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-logo">[NYAMOSI]</span>
-      <span class="footer-copy">© 2025 Nyamosi Opera. All rights reserved.</span>
-      <span class="footer-flag">🇰🇪 Kenya</span>
+      <span>© 2025 Nyamosi Opera. All rights reserved.</span>
+      <span>🇰🇪 Kenya</span>
     </div>
   </footer>
 
