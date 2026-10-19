@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nyamosi</title>
+  <meta name="theme-color" content="#080d18" />
+  <meta name="description" content="Nyamosi Opera's cybersecurity and IT portfolio. Explore security monitoring, Splunk SIEM learning, cloud security, vulnerability assessment, and web development." />
+  <meta name="robots" content="index,follow" />
+  <title>Nyamosi Opera | Cybersecurity &amp; IT Portfolio</title>
   <!-- Favicon - Blue Hacker Icon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0e1a'/%3E%3Ccircle cx='50' cy='35' r='12' fill='none' stroke='%2300d4ff' stroke-width='3'/%3E%3Cpath d='M30 55 L70 55 L60 75 L40 75 Z' fill='none' stroke='%2300d4ff' stroke-width='3' stroke-linejoin='round'/%3E%3Cpath d='M35 55 L35 45 L65 45 L65 55' fill='none' stroke='%2300d4ff' stroke-width='2'/%3E%3Cpath d='M40 75 L40 85 L60 85 L60 75' fill='none' stroke='%2300d4ff' stroke-width='2'/%3E%3Ccircle cx='42' cy='42' r='1.5' fill='%2300d4ff'/%3E%3Ccircle cx='58' cy='42' r='1.5' fill='%2300d4ff'/%3E%3Cpath d='M20 50 L15 55 L20 60' fill='none' stroke='%237b2ffc' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M80 50 L85 55 L80 60' fill='none' stroke='%237b2ffc' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
   <!-- Google Fonts: clean modern sans-serif + mono for code -->
@@ -14,6 +17,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
 
   <!-- NAV -->
   <header id="navbar">
@@ -21,39 +26,40 @@
     <nav id="mainNav">
       <a href="#home"       class="nav-link active" data-section="home">      <span class="nav-num">01</span>Home</a>
       <a href="#services"   class="nav-link"         data-section="services">  <span class="nav-num">02</span>Services</a>
-      <a href="#skills"     class="nav-link"         data-section="skills">    <span class="nav-num">03</span>Skills</a>
-      <a href="#experience" class="nav-link"         data-section="experience"><span class="nav-num">04</span>Experience</a>
-      <a href="#education"  class="nav-link"         data-section="education"> <span class="nav-num">05</span>Education</a>
-      <a href="#contact"    class="nav-link"         data-section="contact">   <span class="nav-num">06</span>Contact</a>
+      <a href="#skills"     class="nav-link"         data-section="skills">    <span class="nav-num">03</span>Skills</a>     <a href="#splunk-lab" class="nav-link" data-section="splunk-lab"><span class="nav-num">04</span>Splunk Lab</a>
+      <a href="#experience" class="nav-link"         data-section="experience"><span class="nav-num">05</span>Experience</a>
+      <a href="#education"  class="nav-link"         data-section="education"> <span class="nav-num">06</span>Education</a>
+      <a href="#contact"    class="nav-link"         data-section="contact">   <span class="nav-num">07</span>Contact</a>
     </nav>
-    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-controls="mobileNav" aria-expanded="false" type="button">
       <span></span><span></span><span></span>
     </button>
   </header>
 
   <!-- Mobile Nav -->
   <div class="mobile-nav" id="mobileNav">
-    <button class="mobile-close" id="mobileClose">✕ Close</button>
+    <button class="mobile-close" id="mobileClose" type="button" aria-label="Close navigation menu">✕ Close</button>
     <div class="mobile-prompt">nyamosi@portfolio:~$</div>
     <nav>
       <a href="#home"       class="mobile-link" data-close>01 // Home</a>
       <a href="#services"   class="mobile-link" data-close>02 // Services</a>
-      <a href="#skills"     class="mobile-link" data-close>03 // Skills</a>
-      <a href="#experience" class="mobile-link" data-close>04 // Experience</a>
-      <a href="#education"  class="mobile-link" data-close>05 // Education</a>
-      <a href="#contact"    class="mobile-link" data-close>06 // Contact</a>
+      <a href="#skills"     class="mobile-link" data-close>03 // Skills</a>    
+      <a href="#splunk-lab" class="mobile-link" data-close>04 // Splunk Lab</a>
+      <a href="#experience" class="mobile-link" data-close>05 // Experience</a>
+      <a href="#education"  class="mobile-link" data-close>06 // Education</a>
+      <a href="#contact"    class="mobile-link" data-close>07 // Contact</a>
     </nav>
   </div>
   <div class="mobile-overlay" id="mobileOverlay"></div>
 
-  <!-- ===== HERO ===== -->
+  <main id="main-content"> <!-- ===== HERO ===== -->
   <section class="home" id="home">
     <div class="container home-grid">
       <div class="home-content">
         <div class="sec-tag"><i class="fas fa-shield-halved"></i> Cybersecurity Professional</div>
         <h1>Nyamosi <span>Opera</span></h1>
         <div class="home-sub">
-          <span>Security Analyst · Cloud Security</span>
+          <span>Cybersecurity · IT Support · Cloud Security</span>
           <span class="badge"><i class="fas fa-certificate"></i> Google Cybersecurity</span>
           <span class="badge"><i class="fas fa-cloud"></i> Google Cloud Security</span>
         </div>
@@ -63,17 +69,17 @@
         </p>
         <div>
           <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Connect</a>
-          <a href="NEWTON NYAMOSI OPERA-cv.pdf" download class="btn-outline"><i class="fas fa-download"></i> Resume</a>
+          <a href="opera_resume.pdf" download class="btn-outline"><i class="fas fa-download"></i> Resume</a>
         </div>
         <div class="hero-badges">
-          <span class="hbadge"><i class="fas fa-shield-halved"></i> Security+</span>
+          <span class="hbadge"><i class="fas fa-chart-line"></i> Splunk SIEM</span>
           <span class="hbadge"><i class="fas fa-cloud"></i> Cloud Security</span>
           <span class="hbadge"><i class="fas fa-bug"></i> Vulnerability Mgmt</span>
         </div>
         <div class="social-row">
-          <a href="https://www.instagram.com/enk0ba/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://github.com/nyam0si" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/enk0ba/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/nyam0si" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
       <div class="home-avatar">
@@ -104,6 +110,12 @@
         <h3>Cloud Security</h3>
         <p>Google Cloud security, IAM, cloud compliance, and infrastructure protection.</p>
         <span class="svc-tag">GCP · IAM · Compliance</span>
+      </div>
+      <div class="svc-card" data-aos>
+        <div class="svc-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>SIEM &amp; Splunk Learning</h3>
+        <p>Developing practical skills in log search, event investigation, security monitoring, and alert triage with Splunk in learning environments.</p>
+        <span class="svc-tag">Splunk · SPL · Log Analysis</span>
       </div>
       <div class="svc-card" data-aos>
         <div class="svc-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
@@ -163,7 +175,8 @@
           <span class="skill-tag"><i class="fas fa-bolt"></i> Incident Response</span>
           <span class="skill-tag"><i class="fas fa-robot"></i> Threat Modeling</span>
           <span class="skill-tag"><i class="fas fa-user-lock"></i> IAM Policy Management</span>
-          <span class="skill-tag"><i class="fas fa-sitemap"></i> SIEM (Splunk/Chronicle)</span>
+          <span class="skill-tag"><i class="fas fa-sitemap"></i> SIEM Fundamentals</span>       
+          <span class="skill-tag"><i class="fas fa-chart-line"></i> Splunk: Search &amp; Log Analysis</span>\n          <span class="skill-tag"><i class="fas fa-filter"></i> SPL Query Basics</span>
           <span class="skill-tag"><i class="fas fa-bug"></i> Intrusion Detection Systems (IDS)</span>
         </div>
       </div>
@@ -183,7 +196,7 @@
       </div>
     </div>
     <div class="tech-badges" data-aos>
-      <span class="tbadge">Kali Linux</span><span class="tbadge">Metasploit</span>
+      <span class="tbadge">Splunk SIEM</span><span class="tbadge">SPL Basics</span><span class="tbadge">Kali Linux</span><span class="tbadge">Metasploit</span>
       <span class="tbadge">Burp Suite</span><span class="tbadge">Wireshark</span>
       <span class="tbadge">Nmap</span><span class="tbadge">TryHackMe</span>
       <span class="tbadge">GCP</span><span class="tbadge">Splunk</span>
@@ -194,7 +207,65 @@
   </div>
 </section>
 
-  <!-- ===== EXPERIENCE ===== -->
+
+  <!-- ===== SPLUNK LEARNING LAB ===== -->
+  <section class="lab section-pad" id="splunk-lab">
+    <div class="container">
+      <div class="sec-header">
+        <div class="sec-tag">// SIEM Learning Lab</div>
+        <h2 class="sec-title">Splunk <span>Threat Monitor</span></h2>
+        <div class="sec-line"></div>
+        <p class="section-intro">An interactive demonstration using fictional security events. It shows how a SIEM analyst can search logs, filter events, and review potential signals. It is a front-end sample, not a live Splunk connection.</p>
+      </div>
+      <div class="splunk-panel" data-aos>
+        <div class="splunk-topbar">
+          <div class="splunk-brand"><span class="splunk-mark">S</span><div><strong>Security Overview</strong><small>SIMULATED DATA · TRAINING VIEW</small></div></div>
+          <span class="live-indicator"><span></span> Demo environment</span>
+        </div>
+        <div class="splunk-metrics">
+          <article class="metric-card"><span>Total events</span><strong id="eventTotal">8</strong><small>Sample dataset</small></article>
+          <article class="metric-card"><span>High severity</span><strong id="highTotal">2</strong><small>Review required</small></article>
+          <article class="metric-card"><span>Unique sources</span><strong id="sourceTotal">5</strong><small>Sample IP addresses</small></article>
+        </div>
+        <div class="splunk-controls">
+          <label class="search-field"><span class="sr-only">Search security events</span><i class="fas fa-search" aria-hidden="true"></i><input id="eventSearch" type="search" placeholder="Search event, source, user, or action..." autocomplete="off"></label>
+          <label class="filter-field">Severity
+            <select id="severityFilter">
+              <option value="all">All severities</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+          </label>
+        </div>
+        <div class="table-wrap">
+          <table class="event-table">
+            <thead><tr><th scope="col">Time (UTC)</th><th scope="col">Severity</th><th scope="col">Event</th><th scope="col">Source IP</th><th scope="col">User</th><th scope="col">Action</th></tr></thead>
+            <tbody id="eventRows">
+              <tr><td>09:42:18</td><td><span class="severity high">High</span></td><td>Repeated failed logins</td><td>198.51.100.24</td><td>admin</td><td>Investigate</td></tr>
+              <tr><td>09:37:04</td><td><span class="severity medium">Medium</span></td><td>Unusual login location</td><td>203.0.113.18</td><td>j.mwangi</td><td>Review</td></tr>
+              <tr><td>09:31:55</td><td><span class="severity low">Low</span></td><td>Policy update recorded</td><td>192.0.2.45</td><td>svc-policy</td><td>Monitor</td></tr>
+              <tr><td>09:24:12</td><td><span class="severity high">High</span></td><td>Suspicious PowerShell activity</td><td>198.51.100.77</td><td>workstation-04</td><td>Investigate</td></tr>
+              <tr><td>09:18:40</td><td><span class="severity medium">Medium</span></td><td>Multiple DNS requests</td><td>203.0.113.52</td><td>host-12</td><td>Review</td></tr>
+              <tr><td>09:12:09</td><td><span class="severity low">Low</span></td><td>Successful VPN login</td><td>192.0.2.91</td><td>a.otieno</td><td>Monitor</td></tr>
+              <tr><td>09:05:33</td><td><span class="severity medium">Medium</span></td><td>Endpoint protection update</td><td>192.0.2.14</td><td>endpoint-07</td><td>Review</td></tr>
+              <tr><td>08:59:01</td><td><span class="severity low">Low</span></td><td>Routine service authentication</td><td>203.0.113.8</td><td>svc-backup</td><td>Monitor</td></tr>
+            </tbody>
+          </table>
+          <p id="noEvents" class="empty-state" hidden>No events match your search. Try another keyword or severity.</p>
+        </div>
+        <div class="splunk-foot"><span><i class="fas fa-circle-info" aria-hidden="true"></i> All IPs and events are fictional documentation examples.</span><button class="text-button" id="resetEvents" type="button">Reset filters</button></div>
+      </div>
+      <div class="query-example" data-aos>
+        <div class="query-heading"><i class="fas fa-terminal" aria-hidden="true"></i><span>Example Splunk SPL query</span><button type="button" id="copyQuery" class="copy-button"><i class="far fa-copy" aria-hidden="true"></i> Copy query</button></div>
+        <pre><code>index=security
+| stats count by user, src_ip, action
+| sort - count</code></pre>
+        <p id="copyStatus" class="copy-status" aria-live="polite">Example only. Run queries inside your own authorized Splunk environment.</p>
+      </div>
+    </div>
+  </section>
+ <!-- ===== EXPERIENCE ===== -->
   <section class="experience section-pad" id="experience">
     <div class="container">
       <div class="sec-header">
@@ -339,12 +410,12 @@
               <div><div class="cc-label">PHONE</div><div class="cc-value">+254 718 413 890</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
             </a>
-            <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" class="contact-card">
+            <a href="https://www.linkedin.com/in/nyamosi-opera-565bba3a5/" target="_blank" rel="noopener noreferrer" class="contact-card">
               <div class="cc-icon"><i class="fa-brands fa-linkedin"></i></div>
               <div><div class="cc-label">LINKEDIN</div><div class="cc-value">Nyamosi Opera</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
             </a>
-            <a href="https://github.com/nyam0si" target="_blank" class="contact-card">
+            <a href="https://github.com/nyam0si" target="_blank" rel="noopener noreferrer" class="contact-card">
               <div class="cc-icon"><i class="fa-brands fa-github"></i></div>
               <div><div class="cc-label">GITHUB</div><div class="cc-value">github.com/nyam0si</div></div>
               <i class="fas fa-arrow-right cc-arrow"></i>
@@ -355,7 +426,7 @@
     </div>
   </section>
 
-  <!-- QUOTE -->
+  </main>  <!-- QUOTE -->
   <div class="quote-strip">
     <div class="quote-inner">
       <span class="quote-mark">“</span>
@@ -369,7 +440,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span class="footer-logo">[NYAMOSI]</span>
-      <span>© 2025 Nyamosi Opera. All rights reserved.</span>
+      <span>© 2026 Nyamosi Opera. All rights reserved.</span>
       <span>🇰🇪 Kenya</span>
     </div>
   </footer>
