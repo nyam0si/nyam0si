@@ -1,212 +1,240 @@
-/* ============================================================
-   NYAMOSI — Modern Cybersecurity Portfolio · app.js
-   ============================================================ */
+/* Nyamosi Opera portfolio interactions */
+(function () {
+  "use strict";
 
-(function() {
-  'use strict';
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ----- MATRIX RAIN BACKGROUND -----
-  (function initMatrix() {
-    const canvas = document.getElementById('matrix-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+  // Lightweight matrix background. Disabled for reduced-motion preferences.
+  function initMatrix() {
+    const canvas = document.getElementById("matrix-canvas");
+    if (!canvas || reduceMotion) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const chars = "01ABCDEF<>[]{}";
+    const fontSize = 14;
+    let columns = 0;
+    let drops = [];
+    let frame = 0;
 
     function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      columns = Math.ceil(window.innerWidth / fontSize);
+      drops = Array.from({ length: columns }, () => Math.random() * -40);
     }
-    resize();
-    window.addEventListener('resize', resize, { passive: true });
 
-    const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ01アABCDEF0123456789<>/\\[]{}|HACK';
-    const fontSize = 13;
-    let columns = Math.floor(canvas.width / fontSize);
-    let drops = Array(columns).fill(1);
-
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(10, 14, 26, 0.04)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.font = `${fontSize}px 'JetBrains Mono', monospace`;
-
+    function draw() {
+      ctx.fillStyle = "rgba(8, 13, 24, 0.12)";
+      ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
+      ctx.font = fontSize + "px 'JetBrains Mono', monospace";
+      ctx.fillStyle = "#00d4ff";
       for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillStyle = i % 5 === 0 ? '#00d4ff' : '#00d4ff';
-        ctx.globalAlpha = Math.random() * 0.3 + 0.05;
-        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-        ctx.globalAlpha = 1;
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+        if (i % 3 === 0) {
+          ctx.globalAlpha = 0.22;
+          ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, drops[i] * fontSize);
         }
-        drops[i]++;
+        if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.985) drops[i] = 0;
+        drops[i] += 0.35;
       }
+      ctx.globalAlpha = 1;
     }
 
-    setInterval(drawMatrix, 50);
-  })();
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    // Draw less often than the original to reduce CPU use.
+    const timer = window.setInterval(() => {
+      frame++;
+      if (frame % 2 === 0) draw();
+    }, 50);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) window.clearInterval(timer);
+    }, { once: true });
+  }
 
-  // ----- CUSTOM CURSOR -----
-  (function initCursor() {
-    const ring = document.getElementById('cursorRing');
-    const dot = document.getElementById('cursorDot');
-    if (!ring || !dot) return;
-
-    let mx = -100, my = -100;
-    let rx = -100, ry = -100;
-
-    document.addEventListener('mousemove', function(e) {
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
-    });
-
-    function animateCursor() {
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-  })();
-
-  // ----- NAVBAR SCROLL -----
-  (function initNavbar() {
-    const nav = document.getElementById('navbar');
+  function initNavbar() {
+    const nav = document.getElementById("navbar");
     if (!nav) return;
-    window.addEventListener('scroll', function() {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
-  })();
+    const update = () => nav.classList.toggle("scrolled", window.scrollY > 24);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+  }
 
-  // ----- MOBILE NAV -----
-  (function initMobileNav() {
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    const overlay = document.getElementById('mobileOverlay');
-    const closeBtn = document.getElementById('mobileClose');
-    if (!hamburger || !mobileNav) return;
+  function initMobileNav() {
+    const hamburger = document.getElementById("hamburger");
+    const mobileNav = document.getElementById("mobileNav");
+    const overlay = document.getElementById("mobileOverlay");
+    const closeBtn = document.getElementById("mobileClose");
+    if (!hamburger || !mobileNav || !overlay) return;
 
-    function openMobile() {
-      mobileNav.classList.add('open');
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    function open() {
+      mobileNav.classList.add("open");
+      overlay.classList.add("open");
+      hamburger.setAttribute("aria-expanded", "true");
+      hamburger.setAttribute("aria-label", "Open navigation menu");
+      document.body.style.overflow = "hidden";
+      if (closeBtn) closeBtn.focus();
     }
-    function closeMobile() {
-      mobileNav.classList.remove('open');
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
+    function close() {
+      mobileNav.classList.remove("open");
+      overlay.classList.remove("open");
+      hamburger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
     }
-
-    hamburger.addEventListener('click', openMobile);
-    if (closeBtn) closeBtn.addEventListener('click', closeMobile);
-    if (overlay) overlay.addEventListener('click', closeMobile);
-
-    document.querySelectorAll('[data-close]').forEach(function(el) {
-      el.addEventListener('click', closeMobile);
+    hamburger.addEventListener("click", () => mobileNav.classList.contains("open") ? close() : open());
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    overlay.addEventListener("click", close);
+    mobileNav.querySelectorAll("[data-close]").forEach(link => link.addEventListener("click", close));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && mobileNav.classList.contains("open")) {
+        close();
+        hamburger.focus();
+      }
     });
+  }
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeMobile();
-    });
-  })();
-
-  // ----- ACTIVE NAV ON SCROLL -----
-  (function initActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    if (sections.length && navLinks.length) {
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var id = entry.target.id;
-            navLinks.forEach(function(link) {
-              link.classList.toggle('active', link.dataset.section === id);
-            });
-          }
+  function initActiveNavigation() {
+    const sections = document.querySelectorAll("main section[id]");
+    const links = document.querySelectorAll(".nav-link");
+    if (!("IntersectionObserver" in window) || !sections.length || !links.length) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        links.forEach(link => {
+          const active = link.dataset.section === entry.target.id;
+          link.classList.toggle("active", active);
+          if (active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
         });
-      }, { rootMargin: '-40% 0px -55% 0px' });
-
-      sections.forEach(function(s) { observer.observe(s); });
-    }
-  })();
-
-  // ----- SCROLL REVEAL (data-aos) & SKILL BAR ANIMATION -----
-  (function initScrollReveal() {
-    const aosItems = document.querySelectorAll('[data-aos]');
-
-    if (aosItems.length) {
-      const revealObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            var target = entry.target;
-            // Animate skill bars inside this element
-            target.querySelectorAll('.pill-fill, .edu-progress-fill').forEach(function(bar) {
-              bar.classList.add('animated');
-            });
-            target.classList.add('visible');
-            revealObserver.unobserve(target);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      aosItems.forEach(function(item) {
-        revealObserver.observe(item);
       });
+    }, { rootMargin: "-35% 0px -55% 0px" });
+    sections.forEach(section => observer.observe(section));
+  }
+
+  function initReveal() {
+    const items = document.querySelectorAll("[data-aos]");
+    if (!items.length) return;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      items.forEach(item => item.classList.add("visible"));
+      document.querySelectorAll(".edu-progress-fill").forEach(bar => bar.classList.add("animated"));
+      return;
     }
-  })();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        entry.target.querySelectorAll(".edu-progress-fill").forEach(bar => bar.classList.add("animated"));
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12 });
+    items.forEach(item => observer.observe(item));
+  }
 
-  // ----- SMOOTH SCROLL for anchor links -----
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    anchor.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", event => {
+        const href = anchor.getAttribute("href");
+        if (!href || href === "#") return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      });
     });
-  });
+  }
 
-  // ----- GLITCH EFFECT on Logo -----
-  (function initGlitch() {
-    const logo = document.querySelector('.nav-logo');
-    if (!logo) return;
-
-    let glitchTimeout;
-    function triggerGlitch() {
-      logo.style.textShadow = '2px 0 #00d4ff, -2px 0 #7b2ffc';
-      setTimeout(function() {
-        logo.style.textShadow = '';
-      }, 100);
-
-      glitchTimeout = setTimeout(triggerGlitch, Math.random() * 6000 + 3000);
-    }
-    glitchTimeout = setTimeout(triggerGlitch, 3000);
-  })();
-
-  // ----- TERMINAL PULSE -----
-  (function terminalPulse() {
-    const term = document.querySelector('.home-terminal');
-    if (!term) return;
-    setTimeout(function() {
-      term.style.boxShadow = '0 0 60px rgba(0, 212, 255, 0.05), inset 0 0 40px rgba(0, 212, 255, 0.02)';
-    }, 2000);
-  })();
-
-  // ----- SERVICE CARD TILT -----
-  document.querySelectorAll('.svc-card').forEach(function(card) {
-    card.addEventListener('mousemove', function(e) {
-      const rect = this.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      this.style.transform = 'translateY(-5px) rotateX(' + (-y / 20) + 'deg) rotateY(' + (x / 20) + 'deg)';
-      this.style.transformOrigin = 'center';
+  function initCardHover() {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches || reduceMotion) return;
+    document.querySelectorAll(".svc-card").forEach(card => {
+      card.addEventListener("pointermove", event => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        card.style.transform = "translateY(-3px) rotateX(" + (-y / 45) + "deg) rotateY(" + (x / 45) + "deg)";
+      });
+      card.addEventListener("pointerleave", () => { card.style.transform = ""; });
     });
-    card.addEventListener('mouseleave', function() {
-      this.style.transform = '';
-    });
-  });
+  }
 
+  function initSplunkDemo() {
+    const tableBody = document.getElementById("eventRows");
+    const searchInput = document.getElementById("eventSearch");
+    const severityFilter = document.getElementById("severityFilter");
+    const resetButton = document.getElementById("resetEvents");
+    const noEvents = document.getElementById("noEvents");
+    if (!tableBody || !searchInput || !severityFilter) return;
+
+    const initialRows = Array.from(tableBody.querySelectorAll("tr")).map(row => {
+      const cells = Array.from(row.cells).map(cell => cell.textContent.trim());
+      return { time: cells[0], severity: cells[1], event: cells[2], source: cells[3], user: cells[4], action: cells[5] };
+    });
+    const severityClass = value => value.toLowerCase();
+    const render = () => {
+      const term = searchInput.value.trim().toLowerCase();
+      const severity = severityFilter.value;
+      const filtered = initialRows.filter(event => {
+        const matchesTerm = [event.time, event.severity, event.event, event.source, event.user, event.action]
+          .some(value => value.toLowerCase().includes(term));
+        return matchesTerm && (severity === "all" || event.severity === severity);
+      });
+      tableBody.replaceChildren();
+      filtered.forEach(event => {
+        const row = document.createElement("tr");
+        [event.time, event.severity, event.event, event.source, event.user, event.action].forEach((value, index) => {
+          const cell = document.createElement("td");
+          if (index === 1) {
+            const badge = document.createElement("span");
+            badge.className = "severity " + severityClass(value);
+            badge.textContent = value;
+            cell.appendChild(badge);
+          } else {
+            cell.textContent = value;
+          }
+          row.appendChild(cell);
+        });
+        tableBody.appendChild(row);
+      });
+      if (noEvents) noEvents.hidden = filtered.length > 0;
+      const eventTotal = document.getElementById("eventTotal");
+      const highTotal = document.getElementById("highTotal");
+      const sourceTotal = document.getElementById("sourceTotal");
+      if (eventTotal) eventTotal.textContent = String(filtered.length);
+      if (highTotal) highTotal.textContent = String(filtered.filter(e => e.severity === "High").length);
+      if (sourceTotal) sourceTotal.textContent = String(new Set(filtered.map(e => e.source)).size);
+    };
+    searchInput.addEventListener("input", render);
+    severityFilter.addEventListener("change", render);
+    if (resetButton) resetButton.addEventListener("click", () => {
+      searchInput.value = "";
+      severityFilter.value = "all";
+      render();
+      searchInput.focus();
+    });
+    render();
+
+    const copyButton = document.getElementById("copyQuery");
+    const copyStatus = document.getElementById("copyStatus");
+    if (copyButton) copyButton.addEventListener("click", async () => {
+      const query = "index=security\\n| stats count by user, src_ip, action\\n| sort - count";
+      try {
+        await navigator.clipboard.writeText(query);
+        if (copyStatus) copyStatus.textContent = "Query copied. Run it inside your own authorized Splunk environment.";
+      } catch (_) {
+        if (copyStatus) copyStatus.textContent = "Clipboard access is unavailable. Select and copy the query shown above.";
+      }
+    });
+  }
+
+  initMatrix();
+  initNavbar();
+  initMobileNav();
+  initActiveNavigation();
+  initReveal();
+  initSmoothScroll();
+  initCardHover();
+  initSplunkDemo();
 })();
